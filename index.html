@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#100d1f" />
+  <title>For the Love of My Life ✨</title>
+  <style>
+    :root {
+      --night: #100d1f;
+      --plum: #21152e;
+      --wine: #642743;
+      --rose: #f19ab4;
+      --gold: #f4d6a0;
+      --cream: #fff5ed;
+      --muted: #d9c8d8;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; min-height: 100vh; color: var(--cream);
+      font-family: "Palatino Linotype", Palatino, Georgia, serif;
+      background:
+        radial-gradient(ellipse at 15% 10%, rgba(120, 48, 91, .38), transparent 38%),
+        radial-gradient(ellipse at 90% 80%, rgba(70, 45, 111, .36), transparent 40%),
+        linear-gradient(145deg, #100d1f, #1a1028 55%, #241326);
+      overflow-x: hidden;
+    }
+    .sky { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+    .star {
+      position: absolute; color: #ffe7bb; opacity: .65;
+      animation: twinkle 3.8s ease-in-out infinite alternate;
+      text-shadow: 0 0 12px rgba(244,214,160,.55);
+    }
+    .petal {
+      position: absolute; top: -40px; color: var(--rose); opacity: .55;
+      animation: drift linear infinite;
+    }
+    @keyframes twinkle { from { opacity: .2; transform: scale(.75); } to { opacity: .9; transform: scale(1.15); } }
+    @keyframes drift { to { transform: translate3d(45px, 115vh, 0) rotate(280deg); } }
+    main { position: relative; z-index: 1; width: min(790px, calc(100% - 28px)); margin: 34px auto; }
+    .card {
+      position: relative; overflow: hidden;
+      background: linear-gradient(155deg, rgba(38, 25, 49, .94), rgba(24, 17, 36, .96));
+      border: 1px solid rgba(244, 214, 160, .32);
+      border-radius: 30px; padding: clamp(25px, 6vw, 60px);
+      box-shadow: 0 28px 90px rgba(0,0,0,.38), inset 0 0 45px rgba(241,154,180,.035);
+      backdrop-filter: blur(10px);
+    }
+    .card::before, .card::after {
+      content: "✦"; position: absolute; color: rgba(244,214,160,.55);
+      font-size: 1.15rem;
+    }
+    .card::before { top: 22px; left: 23px; }
+    .card::after { right: 23px; bottom: 22px; }
+    .eyebrow {
+      color: var(--gold); text-transform: uppercase; letter-spacing: .22em;
+      font: 700 .7rem/1.6 system-ui, sans-serif;
+    }
+    .moon { font-size: 2.1rem; margin: 18px 0 8px; filter: drop-shadow(0 0 18px rgba(244,214,160,.4)); }
+    .big-heart { font-size: 3.4rem; line-height: 1.2; margin: 7px 0 16px; animation: heartbeat 1.8s ease-in-out infinite; filter: drop-shadow(0 0 20px rgba(241,154,180,.35)); }
+    @keyframes heartbeat { 0%,100% { transform: scale(1); } 15% { transform: scale(1.1); } 30% { transform: scale(1); } 45% { transform: scale(1.06); } }
+    h1 {
+      font-size: clamp(2.35rem, 8vw, 4.5rem); line-height: 1.03;
+      color: var(--cream); margin: 10px 0 20px; font-weight: 500;
+      letter-spacing: -.035em; text-wrap: balance;
+    }
+    h1 span { color: var(--rose); font-style: italic; }
+    .subtitle { font: 1.02rem/1.9 system-ui, sans-serif; color: var(--muted); max-width: 570px; margin: 0 auto; }
+    .highlight { color: var(--gold); font-weight: 700; }
+    .rule { width: 94px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 32px auto; position: relative; }
+    .rule::after { content: "✦"; position: absolute; top: -11px; left: calc(50% - 7px); color: var(--gold); font-size: 14px; background: #21152e; padding: 0 5px; }
+    .letter { text-align: left; font: 1rem/2 system-ui, -apple-system, sans-serif; color: #f1e5ee; }
+    .letter p { margin: 0 0 19px; }
+    .salutation { font-family: Georgia, serif; font-size: 1.35rem; font-style: italic; color: var(--rose); }
+    .promise {
+      margin: 32px 0; padding: clamp(22px, 5vw, 34px) 20px;
+      border-radius: 22px; background: linear-gradient(135deg, rgba(100,39,67,.58), rgba(46,29,58,.8));
+      border: 1px solid rgba(241,154,180,.42); text-align: center;
+      box-shadow: 0 12px 36px rgba(0,0,0,.16);
+    }
+    .promise .label { font: 800 .72rem/1.6 system-ui, sans-serif; text-transform: uppercase; letter-spacing: .2em; color: var(--gold); }
+    .promise p { font-size: clamp(1.4rem, 4.6vw, 2rem); line-height: 1.5; color: var(--cream); margin: 12px auto 0; max-width: 530px; font-style: italic; }
+    .promise small { display: block; margin-top: 13px; color: var(--rose); font: .82rem/1.7 system-ui, sans-serif; }
+    .closing { font-size: clamp(1.35rem, 4vw, 1.75rem); line-height: 1.65; text-align: center; color: var(--cream); margin: 28px 0; font-style: italic; }
+    .closing span { color: var(--rose); }
+    button {
+      border: 1px solid rgba(255,245,237,.28); border-radius: 999px;
+      background: linear-gradient(110deg, #a74770, #78345d); color: #fff7f1;
+      padding: 15px 23px; font: 700 .95rem system-ui, sans-serif; cursor: pointer;
+      box-shadow: 0 10px 28px rgba(126,43,83,.32); transition: transform .2s, box-shadow .2s;
+    }
+    button:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(126,43,83,.46); }
+    button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    #littleNote { min-height: 3.4em; margin: 19px 0 0; color: var(--gold); font: italic 1.05rem/1.8 Georgia, serif; }
+    footer { text-align: center; padding: 22px 8px 4px; color: #c5aabd; font: .82rem/1.8 system-ui, sans-serif; letter-spacing: .04em; }
+    @media (max-width: 480px) { main { margin: 16px auto; } .card { border-radius: 24px; } .letter { font-size: .96rem; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <div class="sky" aria-hidden="true" id="sky"></div>
+  <main>
+    <article class="card">
+      <div class="eyebrow">Written beneath a thousand stars</div>
+      <div class="moon" aria-hidden="true">☾ ✦</div>
+      <div class="big-heart" aria-hidden="true">♥</div>
+      <h1>To the girl who <span>has my heart</span></h1>
+      <p class="subtitle">If the whole night sky could carry one message to you, I would ask every star to whisper the same thing: <span class="highlight">you are loved, endlessly and tenderly.</span></p>
+      <div class="rule"></div>
+
+      <section class="letter" aria-label="A letter for you">
+        <p class="salutation">My sweetest love,</p>
+        <p>Sometimes I wish I could open my heart like a little book and let you read every page, just so you could see how much of it belongs to you. You make ordinary days feel magical. Your smile stays with me long after the moment has passed, and even the thought of being close to you makes the world feel softer.</p>
+        <p>My love, please take care of <span class="highlight">your health</span>. Eat properly, drink water, rest when you need to, and never feel that you have to exhaust yourself to do everything. I want you to be gentle with yourself. Your health is precious, your peace matters, and your happiness is something I will always wish for. You don't have to be strong every moment, and you never have to earn my love by pushing yourself too hard.</p>
+        <p>I want the real moments with you: the silly laughter, the long conversations, the sleepy goodnights, the little updates about your day, the comfortable silences, and the moments when we do absolutely nothing but still feel happy because we're together. I don't need every moment to be extraordinary. <span class="highlight">With you, even the ordinary becomes my favourite.</span></p>
+      </section>
+
+      <div class="promise">
+        <div class="label">My birthday wish · just one thing</div>
+        <p>Your time, your presence, and a little more of life spent side by side.</p>
+        <small>No grand gift could mean more to me than making memories with you. 🎂</small>
+      </div>
+
+      <section class="letter">
+        <p>I don't need anything expensive or perfect for my birthday. The gift I want most is your <span class="highlight">quality time</span>—your attention, your stories, your laughter, your hand in mine, and those tiny moments that become our favourite memories.</p>
+        <p>I want to spend every <span class="highlight">milli-second, every zilli-second, every minute, every little second</span> I can with you. Not to put pressure on you, sweetheart, but because time with you is the kind of gift my heart never gets tired of receiving.</p>
+        <p>And always remember, my love: please make time for yourself, too. Rest when you're tired, follow your dreams, and look after the beautiful person you are. I want us to keep choosing each other freely—with happy hearts, healthy minds, and love that feels safe.</p>
+        <p>If I could make one wish and have the universe keep it safe, it would be this: more sunsets with you, more conversations that last too long, more laughter over nothing, more hand-in-hand walks, and more chances to tell you, in a hundred little ways, how much you mean to me.</p>
+      </section>
+
+      <div class="rule"></div>
+      <p class="closing">In every version of tomorrow, in every little second life gives me…<br /><span>my heart will keep finding its way to you. ♥</span></p>
+      <button type="button" id="surpriseBtn">Open one last little secret ✉</button>
+      <p id="littleNote" aria-live="polite"></p>
+    </article>
+    <footer>Made with a full heart, a little stardust, and all my love ✦</footer>
+  </main>
+  <script>
+    const sky = document.getElementById('sky');
+    const stars = ['✦', '·', '✧', '⋆', '♡'];
+    for (let i = 0; i < 46; i++) {
+      const el = document.createElement('span');
+      el.className = 'star';
+      el.textContent = stars[i % stars.length];
+      el.style.left = (Math.random() * 100) + '%';
+      el.style.top = (Math.random() * 100) + '%';
+      el.style.fontSize = (8 + Math.random() * 15) + 'px';
+      el.style.animationDelay = (-Math.random() * 4) + 's';
+      el.style.animationDuration = (2.5 + Math.random() * 4) + 's';
+      sky.appendChild(el);
+    }
+    for (let i = 0; i < 12; i++) {
+      const el = document.createElement('span');
+      el.className = 'petal';
+      el.textContent = ['♡', '❧', '♥'][i % 3];
+      el.style.left = (Math.random() * 100) + '%';
+      el.style.fontSize = (12 + Math.random() * 15) + 'px';
+      el.style.animationDuration = (18 + Math.random() * 18) + 's';
+      el.style.animationDelay = (-Math.random() * 25) + 's';
+      sky.appendChild(el);
+    }
+    document.getElementById('surpriseBtn').addEventListener('click', () => {
+      document.getElementById('littleNote').textContent =
+        'My favourite place in this entire universe will always be beside you. If I get a thousand lifetimes, I hope I get to find you in every one. ♥';
+    });
+  </script>
+</body>
+</html>
